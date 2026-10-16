@@ -1,0 +1,10 @@
+{
+  "author": "Nguyễn Anh Khoa",
+  "packaging": "AI-assisted reference implementation based on user-supplied work and data.",
+  "reference": "https://www.kaggle.com/code/emirakyer/sql-sales-data-analysis",
+  "reference_scope": "Workflow inspiration only; SQL dialect, data, KPI definitions and results are different.",
+  "source_sql_hashes": {
+    "ecommerce_practice/sql/01_tao_va_nap.sql": "b6a60358d01569ad0b3e0e4aeea0076627dae0e9d2b3c16c4fe4e93ec9e80b92",
+    "ecommerce_practice/sql/02_thuc_hanh.sql": "4f2cbe2f0fba0271379eda0db84fd78ee3d1a35858bae2e0c49638831cbd64c7"
+  }
+}
