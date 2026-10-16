@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "database": "EcommerceBasicPractice",
+  "sql_server_version": "16.0.1000.6",
+  "executed_at_utc": "2026-10-16T05:14:45.7478757Z",
+  "result_sets": 31,
+  "checks": [
+    "31 source table counts and 36 enabled/trusted foreign keys",
+    "order-level totals and view uniqueness",
+    "60 periods match monthly_expected.csv",
+    "20 periods match quarterly_expected.csv",
+    "top 10 products and top 10 customers match independent expectations",
+    "repeat customers and accounts without eligible orders",
+    "EDA counts and order-to-item amount reconciliation",
+    "JOIN multiplication demonstration differs from correct total"
+  ],
+  "source_sha256": "0d15019a4622c6ec8d8f8360445b487650d7f511f509e0e259d98982f11153b3",
+  "sql_sha256": {
+    "sql/01_tao_va_nap.sql": "b6a60358d01569ad0b3e0e4aeea0076627dae0e9d2b3c16c4fe4e93ec9e80b92",
+    "sql/02_thuc_hanh.sql": "4f2cbe2f0fba0271379eda0db84fd78ee3d1a35858bae2e0c49638831cbd64c7"
+  },
+  "remaining_runtime_gaps": []
+}

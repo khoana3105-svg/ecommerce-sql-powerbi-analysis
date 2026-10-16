@@ -1,0 +1,26 @@
+﻿[
+    {
+        "File":  "01_tao_va_nap.sql",
+        "SyntaxErrors":  0,
+        "Errors":  [
+
+                   ],
+        "CheckType":  "syntax_only"
+    },
+    {
+        "File":  "02_thuc_hanh.sql",
+        "SyntaxErrors":  0,
+        "Errors":  [
+
+                   ],
+        "CheckType":  "syntax_only"
+    },
+    {
+        "File":  "03_powerbi_views.sql",
+        "SyntaxErrors":  0,
+        "Errors":  [
+
+                   ],
+        "CheckType":  "syntax_only"
+    }
+]
