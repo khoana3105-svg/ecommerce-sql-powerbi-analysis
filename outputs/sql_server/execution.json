@@ -1,0 +1,331 @@
+﻿{
+    "Status":  "executed",
+    "VerifiedAtUTC":  "2026-10-16T11:58:43.3727429Z",
+    "SqlServerVersion":  "16.0.1000.6",
+    "Database":  "EcommerceSalesPortfolio",
+    "LoadedThisRun":  true,
+    "SourceTablesChecked":  31,
+    "ForeignKeys":  36,
+    "DisabledOrUntrustedForeignKeys":  0,
+    "PracticeBatches":  4,
+    "ResultSets":  [
+                       {
+                           "File":  "result_01.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "ImportedTables"
+                                       ]
+                       },
+                       {
+                           "File":  "result_02.csv",
+                           "Batch":  2,
+                           "Rows":  5,
+                           "Columns":  [
+                                           "TableName",
+                                           "TotalRows"
+                                       ]
+                       },
+                       {
+                           "File":  "result_03.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "FirstOrderDate",
+                                           "LastOrderDate"
+                                       ]
+                       },
+                       {
+                           "File":  "result_04.csv",
+                           "Batch":  2,
+                           "Rows":  10,
+                           "Columns":  [
+                                           "id",
+                                           "created_at",
+                                           "user_id",
+                                           "subtotal",
+                                           "discount_amount",
+                                           "tax_amount",
+                                           "shipping_cost",
+                                           "total"
+                                       ]
+                       },
+                       {
+                           "File":  "result_05.csv",
+                           "Batch":  2,
+                           "Rows":  6,
+                           "Columns":  [
+                                           "status_name",
+                                           "OrderCount",
+                                           "RecordedOrderTotal"
+                                       ]
+                       },
+                       {
+                           "File":  "result_06.csv",
+                           "Batch":  2,
+                           "Rows":  3,
+                           "Columns":  [
+                                           "status",
+                                           "PaymentCount",
+                                           "RecordedPaymentAmount"
+                                       ]
+                       },
+                       {
+                           "File":  "result_07.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "TotalFormulaMismatch"
+                                       ]
+                       },
+                       {
+                           "File":  "result_08.csv",
+                           "Batch":  2,
+                           "Rows":  0,
+                           "Columns":  [
+                                           "id",
+                                           "subtotal",
+                                           "ItemGross",
+                                           "tax_amount",
+                                           "ItemTax"
+                                       ]
+                       },
+                       {
+                           "File":  "result_09.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "PaymentAmountMismatch"
+                                       ]
+                       },
+                       {
+                           "File":  "result_10.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "OrdersBeforeUserCreated"
+                                       ]
+                       },
+                       {
+                           "File":  "result_11.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "CompletedPaymentOnCancelledOrRefunded"
+                                       ]
+                       },
+                       {
+                           "File":  "result_12.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "OrdersWithoutPayment"
+                                       ]
+                       },
+                       {
+                           "File":  "result_13.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "OrdersWithoutItems"
+                                       ]
+                       },
+                       {
+                           "File":  "result_14.csv",
+                           "Batch":  2,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "MinQuantity",
+                                           "MaxQuantity",
+                                           "MinUnitPrice",
+                                           "MaxUnitPrice",
+                                           "NonpositiveQuantity",
+                                           "NegativeUnitPrice"
+                                       ]
+                       },
+                       {
+                           "File":  "result_15.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "EligibleOrders",
+                                           "DistinctEligibleOrders",
+                                           "ItemGrossValue",
+                                           "OrderDiscount",
+                                           "SalesValue",
+                                           "TaxAmount",
+                                           "ShippingCost",
+                                           "TotalBilled",
+                                           "AverageOrderSalesValue",
+                                           "CustomersWithEligibleOrders"
+                                       ]
+                       },
+                       {
+                           "File":  "result_16.csv",
+                           "Batch":  4,
+                           "Rows":  10,
+                           "Columns":  [
+                                           "OrderID",
+                                           "OrderDate",
+                                           "UserID",
+                                           "OrderStatus",
+                                           "SalesValue",
+                                           "TotalBilled"
+                                       ]
+                       },
+                       {
+                           "File":  "result_17.csv",
+                           "Batch":  4,
+                           "Rows":  60,
+                           "Columns":  [
+                                           "SalesYear",
+                                           "SalesMonth",
+                                           "EligibleOrders",
+                                           "SalesValue",
+                                           "TotalBilled",
+                                           "AverageOrderSalesValue"
+                                       ]
+                       },
+                       {
+                           "File":  "result_18.csv",
+                           "Batch":  4,
+                           "Rows":  20,
+                           "Columns":  [
+                                           "SalesYear",
+                                           "SalesQuarter",
+                                           "EligibleOrders",
+                                           "SalesValue",
+                                           "TotalBilled"
+                                       ]
+                       },
+                       {
+                           "File":  "result_19.csv",
+                           "Batch":  4,
+                           "Rows":  5,
+                           "Columns":  [
+                                           "SalesYear",
+                                           "EligibleOrders",
+                                           "SalesValue",
+                                           "AverageOrderSalesValue"
+                                       ]
+                       },
+                       {
+                           "File":  "result_20.csv",
+                           "Batch":  4,
+                           "Rows":  10,
+                           "Columns":  [
+                                           "ProductID",
+                                           "ProductName",
+                                           "UnitsSold",
+                                           "ItemGrossValue",
+                                           "OrderCount"
+                                       ]
+                       },
+                       {
+                           "File":  "result_21.csv",
+                           "Batch":  4,
+                           "Rows":  10,
+                           "Columns":  [
+                                           "ProductID",
+                                           "ProductName",
+                                           "UnitsSold",
+                                           "ItemGrossValue"
+                                       ]
+                       },
+                       {
+                           "File":  "result_22.csv",
+                           "Batch":  4,
+                           "Rows":  22,
+                           "Columns":  [
+                                           "CategoryID",
+                                           "CategoryName",
+                                           "UnitsSold",
+                                           "ItemGrossValue",
+                                           "OrderCount"
+                                       ]
+                       },
+                       {
+                           "File":  "result_23.csv",
+                           "Batch":  4,
+                           "Rows":  10,
+                           "Columns":  [
+                                           "UserID",
+                                           "EligibleOrders",
+                                           "SalesValue",
+                                           "FirstEligibleOrderDate",
+                                           "LastEligibleOrderDate"
+                                       ]
+                       },
+                       {
+                           "File":  "result_24.csv",
+                           "Batch":  4,
+                           "Rows":  56,
+                           "Columns":  [
+                                           "UserID",
+                                           "EligibleOrders",
+                                           "SalesValue"
+                                       ]
+                       },
+                       {
+                           "File":  "result_25.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "PurchasingCustomers",
+                                           "RepeatCustomers",
+                                           "RepeatCustomerPct"
+                                       ]
+                       },
+                       {
+                           "File":  "result_26.csv",
+                           "Batch":  4,
+                           "Rows":  4,
+                           "Columns":  [
+                                           "UserID"
+                                       ]
+                       },
+                       {
+                           "File":  "result_27.csv",
+                           "Batch":  4,
+                           "Rows":  60,
+                           "Columns":  [
+                                           "PaymentYear",
+                                           "PaymentMonth",
+                                           "CompletedPayments",
+                                           "CompletedPaymentAmount"
+                                       ]
+                       },
+                       {
+                           "File":  "result_28.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "CorrectTotalBilled"
+                                       ]
+                       },
+                       {
+                           "File":  "result_29.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "RepeatedTotalAfterItemJoin_DoNotUse"
+                                       ]
+                       },
+                       {
+                           "File":  "result_30.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "ItemGrossFromLines"
+                                       ]
+                       },
+                       {
+                           "File":  "result_31.csv",
+                           "Batch":  4,
+                           "Rows":  1,
+                           "Columns":  [
+                                           "ItemGrossFromOrders"
+                                       ]
+                       }
+                   ]
+}

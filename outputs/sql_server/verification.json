@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "database": "EcommerceSalesPortfolio",
+  "sql_server_version": "16.0.1000.6",
+  "executed_at_utc": "2026-10-16T11:58:43.3727429Z",
+  "result_sets": 31,
+  "checks": [
+    "31 source table counts and 36 enabled/trusted foreign keys",
+    "order-level totals and view uniqueness",
+    "60 periods match monthly_expected.csv",
+    "20 periods match quarterly_expected.csv",
+    "top 10 products and top 10 customers match independent expectations",
+    "repeat customers and accounts without eligible orders",
+    "EDA counts and order-to-item amount reconciliation",
+    "JOIN multiplication demonstration differs from correct total"
+  ],
+  "source_sha256": "0d15019a4622c6ec8d8f8360445b487650d7f511f509e0e259d98982f11153b3",
+  "sql_sha256": {
+    "sql/01_tao_va_nap.sql": "ad120d013455b509e2a9ca2fd8b799f68e40e0a896943c286728742ae666cf68",
+    "sql/02_thuc_hanh.sql": "766be632af8ca2114d938ac34933294cf89953baa93464197e3f078148241576",
+    "sql/03_powerbi_views.sql": "7eb2f7cb98a02ce1bebf76129a501c0a3458da6d19a8b0249dfa26f64f6c8c03"
+  },
+  "remaining_runtime_gaps": []
+}

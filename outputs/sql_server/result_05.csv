@@ -1,0 +1,7 @@
+﻿"status_name","OrderCount","RecordedOrderTotal"
+"shipped","152","46105.98"
+"paid","69","16439.21"
+"delivered","43","12854.68"
+"pending","36","9017.38"
+"cancelled","33","8042.15"
+"refunded","27","9387.26"
