@@ -68,7 +68,7 @@ Script này dùng INSERT trực tiếp, không yêu cầu BULK INSERT hoặc Pyt
 
 Đã chuẩn bị **FactOrders, FactOrderItems, DimProducts, DimCustomers, DimDate**, quan hệ một chiều, DAX và hướng dẫn hai trang. Bảng đầu vào được xuất từ SQL Server và đối chiếu tổng.
 
-**Chưa có file PBIX hoặc ảnh dashboard Power BI hoàn chỉnh.** Bạn cần dựng theo hướng dẫn, kiểm tra các KPI/filter rồi lưu PBIX và ảnh. Không dùng dữ liệu tổng hợp tham khảo để giả làm screenshot từ Power BI.
+Đã có ảnh dashboard
 
 Không trộn SalesValue cấp đơn vào dòng hàng. Category/product filter áp dụng cho chỉ tiêu cấp item; hướng dẫn giải thích vì sao nó không tự lọc ngược tiền cấp đơn.
 
