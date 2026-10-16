@@ -1,0 +1,2 @@
+// Calculated COLUMN in DimProducts, not a measure.
+ProductLabel = FORMAT(DimProducts[ProductID], "0") & " | " & DimProducts[ProductName]

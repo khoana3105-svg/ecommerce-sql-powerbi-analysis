@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "data_kind": "synthetic supplied SQL sample",
+  "population": "paid/shipped/delivered orders with completed payment; order-date period",
+  "counts": {
+    "FactOrders": 250,
+    "FactOrderItems": 696,
+    "DimProducts": 400,
+    "DimCustomers": 70
+  },
+  "unfiltered_expected": {
+    "Orders": 250,
+    "SalesValue": "61041.13",
+    "TotalBilled": "70317.71",
+    "ItemGrossValue": "61632.94",
+    "PurchasingCustomers": 66,
+    "RepeatCustomers": 56,
+    "AverageOrderValue": "244.16452",
+    "RepeatCustomerPct": "84.84848484848484848484848485"
+  },
+  "csv_sha256": {
+    "DimCustomers.csv": "83245d1f3959e1f2d29af42156c340bfc48ac3e6d5b3cbd83aeae00c1180820a",
+    "DimDate.csv": "1beebb280042bbcaf2ff8b89f9ac21d8719c3369b5bb51c89e60f366de6ab49d",
+    "DimProducts.csv": "9936c89f22556180e189d6edd3e2240534d50dcfda71d9b765cf28c39aa33bec",
+    "FactOrderItems.csv": "6f7ddbbc941bf1f7cdb9f1632e337e31c0c3010ee5d90e97756363d36ef10fbd",
+    "FactOrders.csv": "9fa21f1f7de23fae889b0473b32bad1fc6a4e94151ec43e7a21dde3bb7c60c20"
+  },
+  "powerbi_desktop_execution": "Not run; these checks validate CSV inputs and expected measures, not a PBIX."
+}

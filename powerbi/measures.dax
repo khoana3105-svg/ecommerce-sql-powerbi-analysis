@@ -1,0 +1,28 @@
+// Tao tung measure rieng trong Power BI, khong dan ca file vao mot measure.
+// Create each measure separately. Tables are imported from powerbi/data/*.csv.
+
+Orders = COUNTROWS(FactOrders)
+
+Sales Value = SUM(FactOrders[SalesValue])
+
+Total Billed = SUM(FactOrders[TotalBilled])
+
+Purchasing Customers = DISTINCTCOUNT(FactOrders[UserID])
+
+Average Order Value = DIVIDE([Sales Value], [Orders])
+
+Repeat Customers =
+    COUNTROWS(
+        FILTER(
+            VALUES(FactOrders[UserID]),
+            CALCULATE(COUNTROWS(FactOrders)) >= 2
+        )
+    )
+
+Repeat Customer % = DIVIDE([Repeat Customers], [Purchasing Customers])
+
+Item Gross Value = SUM(FactOrderItems[ItemGrossValue])
+
+Units Sold = SUM(FactOrderItems[Quantity])
+
+Item Orders = DISTINCTCOUNT(FactOrderItems[OrderID])
