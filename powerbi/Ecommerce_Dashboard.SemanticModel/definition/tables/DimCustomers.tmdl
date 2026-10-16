@@ -1,0 +1,24 @@
+table DimCustomers
+	lineageTag: d3c69101-5b37-4041-95e4-c3c570cfa713
+
+	column UserID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f4b4cae-8f2b-4dd3-8fc9-3617e1a0074b
+		summarizeBy: none
+		sourceColumn: UserID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomers = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\File Downloads\Data-Mining-with-Python-main\SQL-Ecommerce-PowerBI\powerbi\data\DimCustomers.csv"), [Delimiter = ",", Columns = 1, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"UserID", Int64.Type}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

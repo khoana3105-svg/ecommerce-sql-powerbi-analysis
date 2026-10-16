@@ -1,0 +1,145 @@
+table FactOrders
+	lineageTag: af66268d-2f19-4b8c-9185-f489ab247188
+
+	measure Orders = COUNTROWS(FactOrders)
+		formatString: 0
+		lineageTag: 8ea29efc-db46-478e-9c54-f7616382b45e
+
+	measure 'Sales Value' = SUM(FactOrders[SalesValue])
+		formatString: #,0.00
+		lineageTag: 862cc579-b8db-46ed-967d-92e9eb1c1501
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Purchasing Customers' = DISTINCTCOUNT(FactOrders[UserID])
+		formatString: 0
+		lineageTag: 11473bf8-e0f2-4dda-a041-0ac5f0a682eb
+
+	measure 'Average Order Value' = DIVIDE([Sales Value], [Orders])
+		formatString: #,0.00
+		lineageTag: dc18fd88-c229-4c50-a7e4-e6602598b113
+
+	measure 'Repeat Customers' =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(FactOrders[UserID]),
+			        CALCULATE(COUNTROWS(FactOrders)) >= 2
+			    )
+			)
+		formatString: 0
+		lineageTag: e30eac53-a102-4965-99a0-6e83aeee177a
+
+	measure 'Repeat Customer %' =
+			
+			DIVIDE([Repeat Customers], [Purchasing Customers])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 941dca02-04ac-49d6-956b-8bfa92744384
+
+	column OrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: fe8f8a98-1fd5-447d-9154-d296fa26fc62
+		summarizeBy: none
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5659965c-40ba-4932-94a5-ab4ff52f223f
+		summarizeBy: none
+		sourceColumn: UserID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 56941f27-c5d9-4638-87ed-51759259563f
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OrderStatus
+		dataType: string
+		lineageTag: 74a2cf02-6c3d-4138-a356-8860b8b3364e
+		summarizeBy: none
+		sourceColumn: OrderStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGrossValue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 54acc151-4fbb-4ec8-83f9-5d4d8d0b76d5
+		summarizeBy: sum
+		sourceColumn: ItemGrossValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDiscount
+		dataType: double
+		lineageTag: 27e09a84-2358-439f-abad-a684ba2f4375
+		summarizeBy: sum
+		sourceColumn: OrderDiscount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesValue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c60ad9e0-85ce-4888-b01c-54b460cf22d1
+		summarizeBy: sum
+		sourceColumn: SalesValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxAmount
+		dataType: double
+		lineageTag: 8254f899-7733-452e-89c9-b1f74e2c4c8f
+		summarizeBy: sum
+		sourceColumn: TaxAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ShippingCost
+		dataType: double
+		lineageTag: eed0eb2d-2684-47e0-b4ec-f9ba1ecc52ab
+		summarizeBy: sum
+		sourceColumn: ShippingCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalBilled
+		dataType: double
+		lineageTag: 2b25a022-41c4-46f8-973c-b365a96a1265
+		summarizeBy: sum
+		sourceColumn: TotalBilled
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactOrders = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\File Downloads\Data-Mining-with-Python-main\SQL-Ecommerce-PowerBI\powerbi\data\FactOrders.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"OrderID", Int64.Type}, {"UserID", Int64.Type}, {"OrderDate", type date}, {"OrderStatus", type text}, {"ItemGrossValue", type number}, {"OrderDiscount", type number}, {"SalesValue", type number}, {"TaxAmount", type number}, {"ShippingCost", type number}, {"TotalBilled", type number}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

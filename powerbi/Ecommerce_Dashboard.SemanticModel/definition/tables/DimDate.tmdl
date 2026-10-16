@@ -1,0 +1,76 @@
+table DimDate
+	lineageTag: 4937da6a-72ac-423b-a25e-5bd10388a8d1
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: d7bb0344-68aa-405d-a48f-a0e826cb6150
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: f8634982-be10-47e2-919a-43fec14f5c3c
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d8d9721-2448-4479-a623-641669ed4702
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e1a50cc-b517-4e2a-b836-1aece92ffb32
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: d1c78ccf-8ca3-45c7-9895-98a63df089a8
+		summarizeBy: none
+		sourceColumn: YearMonth
+		sortByColumn: YearMonthSort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+
+	column YearMonthSort
+		dataType: int64
+		formatString: 0
+		lineageTag: b20fd264-ed8a-4a9f-ba55-c8abc8a2b615
+		summarizeBy: sum
+		sourceColumn: YearMonthSort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\File Downloads\Data-Mining-with-Python-main\SQL-Ecommerce-PowerBI\powerbi\data\DimDate.csv"), [Delimiter = ",", Columns = 6, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Date", type date}, {"Year", Int64.Type}, {"Quarter", Int64.Type}, {"MonthNumber", Int64.Type}, {"YearMonth", type text}, {"YearMonthSort", Int64.Type}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

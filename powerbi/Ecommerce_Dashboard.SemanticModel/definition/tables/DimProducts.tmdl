@@ -1,0 +1,53 @@
+table DimProducts
+	lineageTag: 657b4abd-3f73-4803-bb2b-45b2407ecb04
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: d986c12a-e990-4e62-82fe-77b80f157db6
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: b0168f80-91de-4a3d-8f34-4b0c3f41495f
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: fe38a381-c319-4e13-81b9-0405c51157aa
+		summarizeBy: none
+		sourceColumn: CategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		lineageTag: 04d330dc-0ad4-49f3-82b4-c1d28edff400
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductLabel = FORMAT(DimProducts[ProductID], "0") & " | " & DimProducts[ProductName]
+		dataType: string
+		summarizeBy: none
+
+	partition DimProducts = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\File Downloads\Data-Mining-with-Python-main\SQL-Ecommerce-PowerBI\powerbi\data\DimProducts.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"ProductID", Int64.Type}, {"ProductName", type text}, {"CategoryID", Int64.Type}, {"CategoryName", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

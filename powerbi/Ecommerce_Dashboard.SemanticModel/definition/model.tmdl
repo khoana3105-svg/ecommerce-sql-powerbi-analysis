@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["FactOrders","DimDate","DimCustomers","DimProducts","FactOrderItems"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FactOrders
+ref table DimDate
+ref table DimCustomers
+ref table DimProducts
+ref table FactOrderItems
+
+ref cultureInfo en-US
+

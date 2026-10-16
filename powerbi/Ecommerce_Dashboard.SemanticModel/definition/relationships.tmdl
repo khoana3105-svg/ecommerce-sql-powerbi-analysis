@@ -1,0 +1,16 @@
+relationship AutoDetected_29253b64-6266-451b-b1e8-d1a125e65cbe
+	fromColumn: FactOrderItems.OrderID
+	toColumn: FactOrders.OrderID
+
+relationship AutoDetected_081e5af5-3efe-4395-bdb9-171afe153131
+	fromColumn: FactOrders.UserID
+	toColumn: DimCustomers.UserID
+
+relationship AutoDetected_469472b6-949e-4ccb-8014-c81c5ab37076
+	fromColumn: FactOrderItems.ProductID
+	toColumn: DimProducts.ProductID
+
+relationship dfbf3f10-25f5-3446-f959-bdce53910fa9
+	fromColumn: FactOrders.OrderDate
+	toColumn: DimDate.Date
+

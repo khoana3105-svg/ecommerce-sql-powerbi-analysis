@@ -1,0 +1,88 @@
+table FactOrderItems
+	lineageTag: 34ee9ebb-16f9-4836-a2d8-d04f2195e4eb
+
+	measure 'Item Gross Value' = SUM(FactOrderItems[ItemGrossValue])
+		formatString: #,0.00
+		lineageTag: cadaa95a-98dc-4fe5-9067-405deeafc5aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Units Sold' = SUM(FactOrderItems[Quantity])
+		formatString: 0
+		lineageTag: ff2d948d-1a55-4741-a03f-99483f6ba7d9
+
+	measure 'Item Orders' = DISTINCTCOUNT(FactOrderItems[OrderID])
+		formatString: 0
+		lineageTag: f74fe470-0b21-4af6-8537-febe5a6abaaf
+
+	measure 'Product Rank' = RANKX(ALLSELECTED(DimProducts[ProductLabel]), [Item Gross Value], , DESC, DENSE)
+		formatString: 0
+
+	column OrderItemID
+		dataType: int64
+		formatString: 0
+		lineageTag: f55b34a0-7b35-4ed9-9986-57fea37bd7f8
+		summarizeBy: count
+		sourceColumn: OrderItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: 05110025-effc-4e01-a20b-4e9299f1d8cc
+		summarizeBy: none
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0354b296-5719-4ede-ad1d-cc7a7389e1f5
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f53100f-b105-4af1-a7c6-54f7a1102cd1
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		lineageTag: f4be9d4d-dc95-4faf-a648-4f86bdeb5b62
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ItemGrossValue
+		dataType: double
+		lineageTag: c5b3da5f-a1a9-40db-8ebe-7dbd9ba8a984
+		summarizeBy: sum
+		sourceColumn: ItemGrossValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactOrderItems = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\File Downloads\Data-Mining-with-Python-main\SQL-Ecommerce-PowerBI\powerbi\data\FactOrderItems.csv"), [Delimiter = ",", Columns = 6, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"OrderItemID", Int64.Type}, {"OrderID", Int64.Type}, {"ProductID", Int64.Type}, {"Quantity", Int64.Type}, {"UnitPrice", type number}, {"ItemGrossValue", type number}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
